@@ -1,6 +1,10 @@
 ﻿#include <iostream>
 
 double power(double n, int p);
+double power(char n, int p);
+double power(short int n, int p);
+double power(long int n, int p);
+double power(float n, int p);
 
 
 int main()
@@ -33,18 +37,48 @@ int main()
 	answer = power(num, degree);
 	std::cout << "Результат: " << answer << std::endl;
 
+	char charNum = static_cast<char>(num);
+	answer = power(charNum, degree);
+	std::cout << "Результат (char): " << answer << std::endl;
+
+	short int shortNum = static_cast<short int>(num);
+	answer = power(shortNum, degree);
+	std::cout << "Результат (short int): " << answer << std::endl;
+
+	long int longNum = static_cast<long int>(num);
+	answer = power(longNum, degree);
+	std::cout << "Результат (long int): " << answer << std::endl;
+
+	float floatNum = static_cast<float>(num);
+	answer = power(floatNum, degree);
+	std::cout << "Результат (float): " << answer << std::endl;
+
 	system("pause");
 	return 0;
 }
 double power(double n, int p) {
 	double ch = 1;
 
-	if (p == 0) {
-		n = 1;
-	}
-	else {
-		for (int i = 1; i <= p; i++)
-			ch = ch * n;
-	}
+	for (int i = 1; i <= p; i++)
+		ch = ch * n;
 	return ch;
+}
+double power(char n, int p) {
+	double num = static_cast<double>(n);
+	return power(num, p);
+}
+
+double power(short int n, int p) {
+	double num = static_cast<double>(n);
+	return power(num, p);
+}
+
+double power(long int n, int p) {
+	double num = static_cast<double>(n);
+	return power(num, p);
+}
+
+double power(float n, int p) {
+	double num = static_cast<double>(n);
+	return power(num, p);
 }
